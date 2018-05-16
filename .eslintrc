@@ -1,0 +1,29 @@
+{
+  "extends": ["standard", "standard-react", "plugin:jsx-a11y/recommended"],
+  "parser": "babel-eslint",
+  "plugins": ["jsx-a11y"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "import/no-webpack-loader-syntax": [0],
+    "jsx-a11y/label-has-for": [2, {
+        "allowChildren": true
+    }],
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-quotes": ["error", "prefer-single"],
+    "keyword-spacing": [0],
+    "no-console": ["off"],
+    "react/display-name": ["off"],
+    "react/jsx-curly-spacing": [1, "always"],
+    "react/jsx-indent": [2, 2],
+    "react/jsx-indent-props": ["off"],
+    "react/no-find-dom-node": [1],
+    "react/no-unescaped-entities": ["off"],
+    "semi": ["error", "never"],
+    "standard/array-bracket-even-spacing": [2, 0],
+    "template-curly-spacing": [1, "always"]
+  }
+}
+
