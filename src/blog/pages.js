@@ -66,7 +66,11 @@ const Page = ({ match }) => {
                 <IconText type='like-o' text='156' />,
                 <IconText type='message' text='2' />
               ] }
-              extra={ <Link to={ item.href }><img width={ 272 } alt='logo' src={ item.logo } /></Link> }
+              extra={
+                <Link to={ item.href }>
+                  <img width={ 272 } alt='logo' src={ item.logo } />
+                </Link>
+              }
             >
               <Item.Meta
                 avatar={ <Avatar src={ item.avatar } /> }

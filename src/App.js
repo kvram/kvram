@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
 import Layout, { Footer, Sider } from 'antd/lib/layout'
+import Icon from 'antd/lib/icon'
 import Nav from './nav'
-import SideMenu from './side-menu'
 import MainContent from './main/main-content'
 import Pages from './blog/pages'
 import PageWrapper from './blog/wrapper'
@@ -23,8 +23,18 @@ class App extends Component {
                 {({ match }) =>
                   match && (
                     <React.Fragment>
-                      <SideMenu />
                       <MainContent />
+                    </React.Fragment>
+                  )
+                }
+              </Route>
+              <Route exact path={ paths.Blog.url }>
+                {({ match }) =>
+                  match && (
+                    <React.Fragment>
+                      <PageSideMenu />
+                      <Pages match={ match } />
+                      <Sider>right sidebar</Sider>
                     </React.Fragment>
                   )
                 }
@@ -39,19 +49,12 @@ class App extends Component {
                   )
                 }
               </Route>
-              <Route exact path={ paths.Blog.url }>
-                {({ match }) =>
-                  match && (
-                    <React.Fragment>
-                      <PageSideMenu />
-                      <Pages match={ match } />
-                    </React.Fragment>
-                  )
-                }
-              </Route>
-              <Sider>right sidebar</Sider>
             </Layout>
-            <Footer>footer</Footer>
+            <Footer>
+              <a href='https://github.com/kvram'>
+                Github <Icon type='github' />
+              </a>
+            </Footer>
           </Layout>
         </div>
       </Router>
