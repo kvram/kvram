@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import './App.css'
 import Layout, { Footer, Sider } from 'antd/lib/layout'
 import Icon from 'antd/lib/icon'
 import Nav from './nav'
@@ -16,7 +15,7 @@ class App extends Component {
     return (
       <Router>
         <div className='main'>
-          <Layout>
+          <Layout className='main-content'>
             <Nav />
             <Layout>
               <Route exact path={ paths.Home.url }>

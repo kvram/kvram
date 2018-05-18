@@ -10,7 +10,6 @@ class Nav extends PureComponent {
     return (
       <Header>
         <Menu
-          theme='dark'
           mode='horizontal'
           defaultSelectedKeys={ [window.location.pathname] }
           style={ { lineHeight: '64px' } }

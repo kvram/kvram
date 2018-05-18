@@ -6,11 +6,11 @@ import { pages } from './pages'
 const PageWrapper = ({ match }) => {
   return (
     <Content className='content'>
-      {Object.entries(pages).map(([page, value]) => (
+      {pages.map(page => (
         <Route
-          key={ page }
-          path={ `/blog/${ value.url }` }
-          component={ value.component }
+          key={ page.url }
+          path={ `/blog/${ page.url }` }
+          component={ page.component }
         />
       ))}
     </Content>

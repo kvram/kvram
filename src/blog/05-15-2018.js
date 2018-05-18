@@ -1,9 +1,11 @@
 import React from 'react'
 
+export const draft = false
+export const url = 'you-can-blog'
+
 export const description = 'Making money blogging is easy.'
 export const logo = 'https://picsum.photos/800/300/?image=977'
-export const title = 'You can blog too!'
-
+export const title = 'You can blog too'
 export const content = ``
 
 const affiliateId = 'kvram'
@@ -11,7 +13,7 @@ const bluehost = (
   <a href={ `https://www.bluehost.com/track/${ affiliateId }` }>bluehost</a>
 )
 
-const Started = () => {
+export const component = () => {
   return (
     <div>
       <h1>Making money blogging is easy</h1>
@@ -35,5 +37,3 @@ const Started = () => {
     </div>
   )
 }
-
-export default Started

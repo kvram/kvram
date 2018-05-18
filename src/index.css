@@ -3,3 +3,20 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.content {
+  background: #fff;
+  margin: 16px;
+  padding: 24px;
+}
+
+.main-content {
+  min-height: 100vh;
+}
+
+.ant-layout .ant-layout-sider,
+.ant-layout .ant-layout-header,
+.ant-layout .ant-menu {
+  background: inherit;
+}
+

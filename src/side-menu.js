@@ -11,7 +11,6 @@ const SideMenu = ({
 }) => (
   <Sider>
     <Menu
-      theme='light'
       defaultSelectedKeys={ defaultSelectedKeys }
       defaultOpenKeys={ defaultOpenKeys }
       mode='inline'

@@ -3,10 +3,10 @@ import SideMenu from '../side-menu'
 
 import { pages } from './pages'
 
-const options = Object.keys(pages).map(page => ({
-  name: page,
-  key: pages[page].url,
-  url: `/blog/${ pages[page].url }`
+const options = pages.map(page => ({
+  name: page.title,
+  key: page.url,
+  url: `/blog/${ page.url }`
 }))
 
 const PageSideMenu = ({ page }) => {

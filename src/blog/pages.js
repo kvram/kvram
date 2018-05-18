@@ -5,24 +5,10 @@ import Avatar from 'antd/lib/avatar'
 import List, { Item } from 'antd/lib/list'
 import Icon from 'antd/lib/icon'
 
-import Started, {
-  content as startedContent,
-  description as startedDescription,
-  logo as startedLogo,
-  title as startedTitle
-} from './05-15-2018'
+import * as Started from './05-15-2018'
+import * as Farm from './05-18-2018-start-a-farm'
 
-export const pages = {
-  'You can blog': {
-    url: 'you-can-blog',
-    component: Started,
-    content: startedContent,
-    description: startedDescription,
-    logo: startedLogo,
-    title: startedTitle
-  }
-  // New: { url: 'new', component: New, draft: true }
-}
+export const pages = [Farm, Started].filter(p => !p.draft)
 
 const IconText = ({ type, text }) => (
   <span>
@@ -30,16 +16,6 @@ const IconText = ({ type, text }) => (
     {text}
   </span>
 )
-
-const listData = Object.entries(pages)
-  .filter(([page, value]) => !value.draft)
-  .map(([page, value]) => ({
-    href: `/blog/${ value.url }`,
-    title: value.title,
-    logo: value.logo,
-    description: value.description,
-    content: value.content
-  }))
 
 const Page = ({ match }) => {
   return (
@@ -52,12 +28,8 @@ const Page = ({ match }) => {
             onChange: page => {},
             pageSize: 3
           } }
-          dataSource={ listData }
-          footer={
-            <div>
-              <b>Passive income</b> from your clicks
-            </div>
-          }
+          dataSource={ pages }
+          footer={ <div /> }
           renderItem={ item => (
             <Item
               key={ item.title }
@@ -67,14 +39,14 @@ const Page = ({ match }) => {
                 <IconText type='message' text='2' />
               ] }
               extra={
-                <Link to={ item.href }>
-                  <img width={ 272 } alt='logo' src={ item.logo } />
+                <Link to={ `/blog/${ item.url }` }>
+                  <img width={ 272 } alt={ item.title } src={ item.logo } />
                 </Link>
               }
             >
               <Item.Meta
                 avatar={ <Avatar src={ item.avatar } /> }
-                title={ <Link to={ item.href }>{item.title}</Link> }
+                title={ <Link to={ `/blog/${ item.url }` }>{item.title}</Link> }
                 description={ item.description }
               />
               {`${ item.content.substring(0, 80) }${
@@ -84,11 +56,11 @@ const Page = ({ match }) => {
           ) }
         />
       )}
-      {Object.entries(pages).map(([page, value]) => (
+      {pages.map(page => (
         <Route
-          key={ page }
-          path={ `${ match.url }/${ value.url }` }
-          component={ value.component }
+          key={ page.title }
+          path={ `${ match.url }/${ page.url }` }
+          component={ page.component }
         />
       ))}
     </Content>
