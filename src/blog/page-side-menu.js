@@ -6,7 +6,8 @@ import { pages } from './pages'
 const options = pages.map(page => ({
   name: page.title,
   key: page.url,
-  url: `/blog/${ page.url }`
+  url: `/blog/${ page.url }`,
+  icon: 'profile'
 }))
 
 const PageSideMenu = ({ page }) => {

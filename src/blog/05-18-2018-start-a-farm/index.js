@@ -7,13 +7,12 @@ export const logo = 'https://picsum.photos/800/300/?image=424'
 export const title = 'Start a farm'
 export const url = 'start-a-farm'
 
-export const component = (props) => {
-  console.log(props)
+export const component = () => {
   return (
     <div>
       <h1>What is a farm</h1>
       <div>
-        <img alt={title} src={logo} height='120px'/>
+        <img alt={ title } src={ logo } height='120px' />
       </div>
       A farm is place where you grow food.
       <p>

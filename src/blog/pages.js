@@ -10,6 +10,8 @@ import * as Farm from './05-18-2018-start-a-farm'
 
 export const pages = [Farm, Started].filter(p => !p.draft)
 
+const PAGINATION_PAGES = 4
+
 const IconText = ({ type, text }) => (
   <span>
     <Icon type={ type } style={ { marginRight: 8 } } />
@@ -24,10 +26,10 @@ const Page = ({ match }) => {
         <List
           itemLayout='vertical'
           size='large'
-          pagination={ {
+          pagination={ pages.length > PAGINATION_PAGES ? {
             onChange: page => {},
-            pageSize: 3
-          } }
+            pageSize: PAGINATION_PAGES
+          } : undefined }
           dataSource={ pages }
           footer={ <div /> }
           renderItem={ item => (
